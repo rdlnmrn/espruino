@@ -780,8 +780,10 @@ void jshInit() {
   jshInitDevices();
   jshResetPeripherals();
 
+#ifndef NO_LED_ON_STARTUP
 #ifdef LED1_PININDEX
   jshPinOutput(LED1_PININDEX, LED1_ONSTATE);
+#endif
 #endif
 
   nrf_utils_lfclk_config_and_start();   // RB note: For NRF_SD_BLE_API_VERSION>=5, this gets re-set by jsble_init()
@@ -933,8 +935,10 @@ void jshInit() {
 
 
 
+#ifndef NO_LED_ON_STARTUP
 #ifdef LED1_PININDEX
   jshPinOutput(LED1_PININDEX, !LED1_ONSTATE);
+#endif
 #endif
 }
 
